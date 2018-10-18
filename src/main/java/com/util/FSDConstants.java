@@ -1,4 +1,4 @@
-package java.com.util;
+package com.util;
 
 public class FSDConstants {
 	

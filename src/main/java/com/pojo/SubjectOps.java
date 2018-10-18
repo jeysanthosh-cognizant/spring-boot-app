@@ -4,6 +4,13 @@ public class SubjectOps {
 	long[] delSubjIds;
 	String searchSubjId;
 	String searchSubjTitle;
+	public int getSearchDuration() {
+		return searchDuration;
+	}
+	public void setSearchDuration(int searchDuration) {
+		this.searchDuration = searchDuration;
+	}
+	int searchDuration;
 	public long[] getDelSubjIds() {
 		return delSubjIds;
 	}
