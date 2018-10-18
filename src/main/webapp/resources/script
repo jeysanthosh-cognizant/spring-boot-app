@@ -63,7 +63,31 @@ CREATE TABLE IF NOT EXISTS `user_roles` (
   `role` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Data exporting was unselected.
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+INSERT INTO `book` (`BOOK_ID`, `TITLE`, `PRICE`, `VOLUME`, `PUBLISH_DATE`) VALUES
+	(3, 'A new book - Updated', 2, 2, '1999-01-01'),
+	(6, 'Random Book', 10, 1, '2018-08-24'),
+	(7, 'Random Book 1', 10, 1, '2018-08-24'),
+	(18, 'Test', 5, 5, '2009-12-31'),
+	(1099, 'Title1', 1000, 1081, '2018-01-01'),
+	(11111, 'Test title', 33, 1, '2222-01-01');
+
+
+INSERT INTO `subject` (`SUBJECT_ID`, `SUBTITLE`, `DURATION_IN_HOURS`) VALUES
+	(2, '2', 2),
+	(3, '3', 3),
+	(4, '4', 4),
+	(5, '5', 5),
+	(55, 'Math', 222),
+	(101, '222', 5555),
+	(102, 'Physics', 111),
+	(103, 'Social', 111),
+	(29890, 'Science', 111);
+
+	INSERT INTO `users` (`username`, `password`, `enabled`) VALUES
+	('librariam', 'librarian', '1'),
+	('admin', 'admin', '1');
+
+
+INSERT INTO `user_roles` (`username`, `role`) VALUES
+	('librariam', 'ROLE_LIBRARIAN'),
+	('admin', 'ROLE_PRINCIPAL');
