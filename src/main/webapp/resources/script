@@ -1,0 +1,69 @@
+-- --------------------------------------------------------
+-- Host:                         localhost
+-- Server version:               8.0.12 - MySQL Community Server - GPL
+-- Server OS:                    Win64
+-- HeidiSQL Version:             9.5.0.5196
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+-- Dumping database structure for test
+CREATE DATABASE IF NOT EXISTS `test` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+USE `test`;
+
+-- Dumping structure for table test.book
+CREATE TABLE IF NOT EXISTS `book` (
+  `BOOK_ID` bigint(20) NOT NULL,
+  `TITLE` varchar(50) DEFAULT NULL,
+  `PRICE` double DEFAULT NULL,
+  `VOLUME` int(11) DEFAULT NULL,
+  `PUBLISH_DATE` date DEFAULT NULL,
+  PRIMARY KEY (`BOOK_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Data exporting was unselected.
+-- Dumping structure for table test.book_subject_rel
+CREATE TABLE IF NOT EXISTS `book_subject_rel` (
+  `SUBJECT_ID` bigint(20) NOT NULL,
+  `BOOK_ID` bigint(20) NOT NULL,
+  KEY `FK3vthaqpcbn9rfnhbv2pwyd8lh` (`SUBJECT_ID`),
+  KEY `FKs56ni3i4wf3pp1qqcrlwvoh4i` (`BOOK_ID`),
+  CONSTRAINT `FK3vthaqpcbn9rfnhbv2pwyd8lh` FOREIGN KEY (`SUBJECT_ID`) REFERENCES `subject` (`subject_id`),
+  CONSTRAINT `FKs56ni3i4wf3pp1qqcrlwvoh4i` FOREIGN KEY (`BOOK_ID`) REFERENCES `book` (`book_id`),
+  CONSTRAINT `book_subject_rel_ibfk_1` FOREIGN KEY (`SUBJECT_ID`) REFERENCES `subject` (`subject_id`),
+  CONSTRAINT `book_subject_rel_ibfk_2` FOREIGN KEY (`BOOK_ID`) REFERENCES `book` (`book_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Data exporting was unselected.
+-- Dumping structure for table test.subject
+CREATE TABLE IF NOT EXISTS `subject` (
+  `SUBJECT_ID` bigint(20) NOT NULL,
+  `SUBTITLE` varchar(50) DEFAULT NULL,
+  `DURATION_IN_HOURS` int(11) DEFAULT NULL,
+  PRIMARY KEY (`SUBJECT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Data exporting was unselected.
+-- Dumping structure for table test.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `enabled` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Data exporting was unselected.
+-- Dumping structure for table test.user_roles
+CREATE TABLE IF NOT EXISTS `user_roles` (
+  `username` varchar(50) DEFAULT NULL,
+  `role` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Data exporting was unselected.
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
